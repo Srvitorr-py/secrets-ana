@@ -71,6 +71,7 @@ function App() {
 
   async function alternarMusica() {
     const audio = audioRef.current;
+
     if (!audio) return;
 
     if (musicaLigada) {
@@ -196,7 +197,9 @@ function App() {
 
             <div className="envelope-area">
               <button
-                className={`envelope ${cartaAberta ? "envelope-aberto" : ""}`}
+                className={`envelope ${
+                  cartaAberta ? "envelope-aberto" : ""
+                }`}
                 onClick={() => setCartaAberta(!cartaAberta)}
                 aria-expanded={cartaAberta}
               >
@@ -216,16 +219,20 @@ function App() {
             {cartaAberta && (
               <article className="carta-revelada animar">
                 <p className="carta-sauda">Minha querida Ana Luiza,</p>
+
                 <p>
                   Se esta fosse uma edição escrita por Lady Whistledown, eu
                   certamente teria de revelar que existe alguém por trás
                   destas palavras que deseja arrancar um sorriso seu.
                 </p>
+
                 <p>
                   Prepare-se para algumas páginas, pequenos segredos e uma
                   surpresa reservada especialmente para você.
                 </p>
+
                 <p className="assinatura">Com carinho, Vitor. ♡</p>
+
                 <button
                   className="botao-principal"
                   onClick={() => irPara("gazeta")}
@@ -240,6 +247,7 @@ function App() {
                 <span>O caminho até o último segredo</span>
                 <span>{Math.round(progresso * 100)}%</span>
               </div>
+
               <div className="progresso-trilho">
                 <div
                   className="progresso-preenchido"
@@ -254,7 +262,9 @@ function App() {
           <section className="pagina animar">
             <div className="cabecalho-secao">
               <span>EDIÇÃO EXTRAORDINÁRIA</span>
-              <h2>Os segredos da <em>sociedade</em></h2>
+              <h2>
+                Os segredos da <em>sociedade</em>
+              </h2>
               <p>
                 Uma pequena investigação sobre os assuntos que realmente
                 importam.
@@ -294,11 +304,13 @@ function App() {
                   quanto uma história que começa com um nome cuidadosamente
                   escrito em um envelope.
                 </p>
+
                 <p>
                   Neste projeto, a atenção desta autora volta-se para Ana Luiza,
                   uma senhorita que merece mais do que uma simples nota nas
                   páginas da sociedade.
                 </p>
+
                 <p>
                   Dizem que o verdadeiro mistério não seria descobrir quem
                   escreveu uma gazeta, mas por que alguém preparou cada
@@ -316,6 +328,7 @@ function App() {
 
             <div className="segredos-area">
               <h3>Três pequenos segredos</h3>
+
               <p className="texto-suave">
                 Dizem que há mais neste projeto do que os olhos conseguem ver.
                 Toque nos lacres para descobrir.
@@ -353,7 +366,9 @@ function App() {
                     <span className="segredo-icone">
                       {segredos.includes(i) ? item.icone : "🔒"}
                     </span>
+
                     <strong>{item.titulo}</strong>
+
                     <span className="segredo-dica">
                       {segredos.includes(i)
                         ? item.texto
@@ -379,7 +394,9 @@ function App() {
           <section className="pagina animar">
             <div className="cabecalho-secao">
               <span>CORRESPONDÊNCIAS CONFIDENCIAIS</span>
-              <h2>Palavras guardadas <em>com carinho</em></h2>
+              <h2>
+                Palavras guardadas <em>com carinho</em>
+              </h2>
               <p>
                 Algumas mensagens só precisam da pessoa certa para existir.
               </p>
@@ -436,7 +453,9 @@ function App() {
           <section className="pagina animar">
             <div className="cabecalho-secao">
               <span>UMA PEQUENA OBRA EM TRÊS ATOS</span>
-              <h2>O livro dos <em>sentimentos</em></h2>
+              <h2>
+                O livro dos <em>sentimentos</em>
+              </h2>
               <p>
                 Inspirado no charme da Regência e nas histórias que aquecem o
                 coração.
@@ -454,7 +473,9 @@ function App() {
                     Segredos
                   </h3>
                   <p>Uma edição para Ana Luiza</p>
-                  <span className="capa-rodape">COM TODO O CARINHO ♡</span>
+                  <span className="capa-rodape">
+                    COM TODO O CARINHO ♡
+                  </span>
                 </div>
               </div>
 
@@ -469,10 +490,12 @@ function App() {
                       aria-expanded={capituloAberto === i}
                     >
                       <span className="capitulo-numero">0{i + 1}</span>
+
                       <span className="capitulo-titulo">
                         <strong>{capitulo.titulo}</strong>
                         <small>{capitulo.subtitulo}</small>
                       </span>
+
                       <span className="capitulo-sinal">
                         {capituloAberto === i ? "−" : "+"}
                       </span>
@@ -486,11 +509,26 @@ function App() {
                   </article>
                 ))}
               </div>
+            </div>
+
+            <div className="centralizado">
+              <button
+                className="botao-principal"
+                onClick={() => irPara("baile")}
+              >
+                Receber um convite especial →
+              </button>
+            </div>
+          </section>
+        )}
+
         {secao === "baile" && (
           <section className="pagina animar">
             <div className="cabecalho-secao">
               <span>UMA NOITE NA ALTA SOCIEDADE</span>
-              <h2>O convite para <em>o baile</em></h2>
+              <h2>
+                O convite para <em>o baile</em>
+              </h2>
               <p>
                 Escolha uma pequena surpresa. Cada uma guarda uma mensagem
                 diferente.
@@ -507,7 +545,9 @@ function App() {
                   onClick={() => setEscolha(i)}
                 >
                   <span className="escolha-emoji">{item.emoji}</span>
-                  <span className="escolha-numero">CONVITE Nº 0{i + 1}</span>
+                  <span className="escolha-numero">
+                    CONVITE Nº 0{i + 1}
+                  </span>
                   <strong>{item.titulo}</strong>
                   <span className="escolha-instrucao">
                     {escolha === i
@@ -667,16 +707,3 @@ function App() {
 }
 
 export default App;
-
-            </div>
-
-            <div className="centralizado">
-              <button
-                className="botao-principal"
-                onClick={() => irPara("baile")}
-              >
-                Receber um convite especial →
-              </button>
-            </div>
-          </section>
-        )}
