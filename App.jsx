@@ -1,5 +1,5 @@
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 
 const capitulos = [
@@ -7,19 +7,19 @@ const capitulos = [
     titulo: "Capítulo I — Um encontro inesperado",
     subtitulo: "Toda história começa com um detalhe.",
     texto:
-      "No momento que te conheci, entre tantos rostos e tantos caminhos, existe algo bonito na maneira como uma pessoa passa a ocupar um espaço especial em nossos pensamentos. Às vezes, a história começa discretamente: em uma conversa, em um sorriso ou na vontade de conhecer alguém um pouquinho mais.",
+      "No momento em que te conheci, entre tantos rostos e caminhos, aconteceu algo bonito: uma pessoa começou a ocupar um espaço especial nos meus pensamentos. Às vezes, uma história começa discretamente, em uma conversa, em um sorriso ou na vontade de conhecer alguém um pouquinho mais.",
   },
   {
     titulo: "Capítulo II — Um pequeno segredo",
     subtitulo: "Algumas coisas merecem ser guardadas com carinho.",
     texto:
-      "Se Lady Whistledown conhecesse esta história kkkkkk, talvez ela encontrasse motivos para escrever uma edição inteira. Mas tem sentimentos que não precisam ser anunciados para todo o mundo. Alguns podem ser cultivados em silêncio — tipo uma declaração de amor, talvez... Eu acho que são os detalhes e os pequenos gestos que tornam alguém especial.",
+      "Se Lady Whistledown conhecesse esta história kkkkkk, talvez encontrasse motivos para escrever uma edição inteira. Mas existem sentimentos que não precisam ser anunciados para o mundo. Alguns podem ser cultivados em silêncio, nos detalhes e nos pequenos gestos que tornam alguém especial.",
   },
   {
     titulo: "Capítulo III — Uma senhorita inesquecível",
-    subtitulo: "Há pessoas que tornam os dias mais bonitos e alegres.",
+    subtitulo: "Há pessoas que tornam os dias mais bonitos.",
     texto:
-      "Em uma sociedade cheia de aparências e regras, eu acho que o mais raro seria encontrar alguém que despertasse sentimentos sinceros. E talvez o verdadeiro encanto esteja justamente nisso: perceber que, entre tantas possibilidades, existe uma pessoa que faz você querer escrever mais um capítulo.",
+      "Em uma sociedade cheia de aparências e regras, o mais raro talvez seja encontrar alguém que desperte sentimentos sinceros. E talvez o verdadeiro encanto esteja nisso: perceber que, entre tantas possibilidades, existe uma pessoa que faz você querer escrever mais um capítulo.",
   },
 ];
 
@@ -28,13 +28,13 @@ const escolhas = [
     titulo: "Uma carta perfumada",
     emoji: "💌",
     mensagem:
-      "Eu acredito que algumas palavras ficam ainda mais bonitas quando estão sendo escritas pensando em alguém especial. Que esta carta seja um pequeno lembrete de que você merece receber carinho nos detalhes.",
+      "Algumas palavras ficam ainda mais bonitas quando são escritas pensando em alguém especial. Que esta carta seja um pequeno lembrete de que você merece carinho nos detalhes.",
   },
   {
     titulo: "Um convite para dançar",
     emoji: "🌷",
     mensagem:
-      "Imagine um salão iluminado, uma música suave e uma dança sem pressa. Às vezes, tudo o que precisamos é de um momento bonito para guardar na memória, tipo aquela vez que fomos comer pizza, em que você estava maravilhosa.",
+      "Imagine um salão iluminado, uma dança sem pressa e um momento bonito para guardar na memória. Tipo aquela vez em que fomos comer pizza e você estava maravilhosa.",
   },
   {
     titulo: "Um segredo da gazeta",
@@ -50,44 +50,23 @@ function App() {
   const [segredos, setSegredos] = useState([]);
   const [capituloAberto, setCapituloAberto] = useState(null);
   const [escolha, setEscolha] = useState(null);
-  const [finalDesbloqueado, setFinalDesbloqueado] = useState(false);
   const [declaracaoAberta, setDeclaracaoAberta] = useState(false);
-  const [musicaLigada, setMusicaLigada] = useState(false);
-  const [erroMusica, setErroMusica] = useState(false);
-
-  const audioRef = useRef(null);
 
   const progresso =
     (Number(cartaAberta) +
-      Number(segredos.length >= 3) +
+      Number(segredos.length === 3) +
       Number(escolha !== null)) /
     3;
 
+  const finalDesbloqueado =
+    cartaAberta && segredos.length === 3 && escolha !== null;
+
   useEffect(() => {
-    if (cartaAberta && segredos.length >= 3 && escolha !== null) {
-      setFinalDesbloqueado(true);
-    }
-  }, [cartaAberta, segredos, escolha]);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [secao]);
 
-  async function alternarMusica() {
-    const audio = audioRef.current;
-
-    if (!audio) return;
-
-    if (musicaLigada) {
-      audio.pause();
-      setMusicaLigada(false);
-      return;
-    }
-
-    try {
-      await audio.play();
-      setMusicaLigada(true);
-      setErroMusica(false);
-    } catch {
-      setErroMusica(true);
-      setMusicaLigada(false);
-    }
+  function irPara(novaSecao) {
+    setSecao(novaSecao);
   }
 
   function revelarSegredo(indice) {
@@ -96,29 +75,14 @@ function App() {
     );
   }
 
-  function irPara(secaoNova) {
-    setSecao(secaoNova);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
-
   function abrirDeclaracao() {
+    if (!finalDesbloqueado) return;
     setDeclaracaoAberta(true);
     irPara("final");
   }
 
   return (
     <div className="site">
-      <audio
-        ref={audioRef}
-        src={`${import.meta.env.BASE_URL}regencia.mp3`}
-        loop
-        preload="none"
-        onError={() => {
-          setErroMusica(true);
-          setMusicaLigada(false);
-        }}
-      />
-
       <div className="ornamento-topo">✦ ❦ ✦</div>
 
       <header className="cabecalho">
@@ -149,23 +113,7 @@ function App() {
             </button>
           ))}
         </nav>
-
-        <button
-          className="botao-musica"
-          onClick={alternarMusica}
-          aria-label={musicaLigada ? "Desligar música" : "Tocar música"}
-        >
-          {musicaLigada ? "♫ Música ligada" : "♫ Música"}
-        </button>
       </header>
-
-      {erroMusica && (
-        <p className="aviso-musica">
-          Não foi possível carregar a música. Confira se o arquivo
-          <code> regencia.mp3 </code>
-          está na raiz do repositório e se a publicação terminou.
-        </p>
-      )}
 
       <main>
         {secao === "inicio" && (
@@ -237,7 +185,7 @@ function App() {
                   className="botao-principal"
                   onClick={() => irPara("gazeta")}
                 >
-                  Descobrir esta edição <span>→</span>
+                  Descobrir esta edição →
                 </button>
               </article>
             )}
@@ -247,7 +195,6 @@ function App() {
                 <span>O caminho até o último segredo</span>
                 <span>{Math.round(progresso * 100)}%</span>
               </div>
-
               <div className="progresso-trilho">
                 <div
                   className="progresso-preenchido"
@@ -304,17 +251,15 @@ function App() {
                   quanto uma história que começa com um nome cuidadosamente
                   escrito em um envelope.
                 </p>
-
                 <p>
                   Neste projeto, a atenção desta autora volta-se para Ana Luiza,
                   uma senhorita que merece mais do que uma simples nota nas
                   páginas da sociedade.
                 </p>
-
                 <p>
-                  Dizem que o verdadeiro mistério não seria descobrir quem
-                  escreveu uma gazeta, mas por que alguém preparou cada
-                  detalhe pensando nela.
+                  Dizem que o verdadeiro mistério não é descobrir quem escreveu
+                  a gazeta, mas por que alguém preparou cada detalhe pensando
+                  nela.
                 </p>
               </div>
 
@@ -328,7 +273,6 @@ function App() {
 
             <div className="segredos-area">
               <h3>Três pequenos segredos</h3>
-
               <p className="texto-suave">
                 Dizem que há mais neste projeto do que os olhos conseguem ver.
                 Toque nos lacres para descobrir.
@@ -366,9 +310,7 @@ function App() {
                     <span className="segredo-icone">
                       {segredos.includes(i) ? item.icone : "🔒"}
                     </span>
-
                     <strong>{item.titulo}</strong>
-
                     <span className="segredo-dica">
                       {segredos.includes(i)
                         ? item.texto
@@ -490,12 +432,10 @@ function App() {
                       aria-expanded={capituloAberto === i}
                     >
                       <span className="capitulo-numero">0{i + 1}</span>
-
                       <span className="capitulo-titulo">
                         <strong>{capitulo.titulo}</strong>
                         <small>{capitulo.subtitulo}</small>
                       </span>
-
                       <span className="capitulo-sinal">
                         {capituloAberto === i ? "−" : "+"}
                       </span>
@@ -572,12 +512,11 @@ function App() {
                 <span>Segredos descobertos</span>
                 <span>
                   {Number(cartaAberta) +
-                    Number(segredos.length >= 3) +
+                    Number(segredos.length === 3) +
                     Number(escolha !== null)}{" "}
                   de 3
                 </span>
               </div>
-
               <div className="progresso-trilho">
                 <div
                   className="progresso-preenchido"
@@ -596,8 +535,8 @@ function App() {
                 </button>
               ) : (
                 <p className="texto-suave">
-                  Ainda há segredos para descobrir. Visite a carta inicial e
-                  revele os três segredos da Gazeta.
+                  Ainda há segredos para descobrir. Abra a carta inicial,
+                  revele os três segredos da Gazeta e escolha seu convite.
                 </p>
               )}
             </div>
@@ -661,16 +600,12 @@ function App() {
                 <span className="selo-superior">
                   CORRESPONDÊNCIA SELADA
                 </span>
-
                 <div className="flor-separadora">🔒</div>
-
                 <h2>A última carta ainda está fechada...</h2>
-
                 <p>
                   A Gazeta guarda uma última mensagem. Descubra os segredos
                   anteriores e escolha seu convite para abri-la.
                 </p>
-
                 <button
                   className="botao-principal"
                   onClick={() => irPara("baile")}
@@ -685,14 +620,11 @@ function App() {
 
       <footer className="rodape">
         <div className="flor-separadora">❦</div>
-
         <p>Uma edição feita com carinho para Ana Luiza.</p>
-
         <p className="rodape-menor">
           Inspirada no encanto dos romances de época e no universo de
           Bridgerton.
         </p>
-
         <button
           className="rodape-botao"
           onClick={() => irPara("inicio")}
@@ -707,3 +639,4 @@ function App() {
 }
 
 export default App;
+
