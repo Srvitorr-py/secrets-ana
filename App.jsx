@@ -7,17 +7,17 @@ const capitulos = [
     titulo: "Capítulo I — Um encontro inesperado",
     subtitulo: "Toda história começa com um detalhe.",
     texto:
-      "No momento que te conheci, Entre tantos rostos e tantos caminhos, existe algo bonito na maneira como uma pessoa passa a ocupar um espaço especial em nossos pensamentos. Às vezes, a história começa discretamente: em uma conversa, em um sorriso ou na vontade de conhecer alguém um pouquinho mais.",
+      "No momento que te conheci, entre tantos rostos e tantos caminhos, existe algo bonito na maneira como uma pessoa passa a ocupar um espaço especial em nossos pensamentos. Às vezes, a história começa discretamente: em uma conversa, em um sorriso ou na vontade de conhecer alguém um pouquinho mais.",
   },
   {
     titulo: "Capítulo II — Um pequeno segredo",
     subtitulo: "Algumas coisas merecem ser guardadas com carinho.",
     texto:
-      "Se Lady Whistledown conhecesse esta história kkkkkk , talvez ela encontrasse motivos para escrever uma edição inteira. Mas,tem sentimentos que não precisam ser anunciados para todo o mundo. Alguns podem ser cultivados em silêncio,--tipo uma declaração de amor talvez...--, Eu acho que e nos detalhes é nos pequenos gestos que tornam alguém especial.",
+      "Se Lady Whistledown conhecesse esta história kkkkkk, talvez ela encontrasse motivos para escrever uma edição inteira. Mas tem sentimentos que não precisam ser anunciados para todo o mundo. Alguns podem ser cultivados em silêncio — tipo uma declaração de amor, talvez... Eu acho que são os detalhes e os pequenos gestos que tornam alguém especial.",
   },
   {
     titulo: "Capítulo III — Uma senhorita inesquecível",
-    subtitulo: "Há pessoas que tornam os dias mais bonitos e Alegres.",
+    subtitulo: "Há pessoas que tornam os dias mais bonitos e alegres.",
     texto:
       "Em uma sociedade cheia de aparências e regras, eu acho que o mais raro seria encontrar alguém que despertasse sentimentos sinceros. E talvez o verdadeiro encanto esteja justamente nisso: perceber que, entre tantas possibilidades, existe uma pessoa que faz você querer escrever mais um capítulo.",
   },
@@ -28,13 +28,13 @@ const escolhas = [
     titulo: "Uma carta perfumada",
     emoji: "💌",
     mensagem:
-      "Eu acredito que algumas palavras, ficam ainda mais bonitas quando estão sendo escritas pensando em alguém especial. Que esta carta seja um pequeno lembrete de que você merece receber carinho nos detalhes.",
+      "Eu acredito que algumas palavras ficam ainda mais bonitas quando estão sendo escritas pensando em alguém especial. Que esta carta seja um pequeno lembrete de que você merece receber carinho nos detalhes.",
   },
   {
     titulo: "Um convite para dançar",
     emoji: "🌷",
     mensagem:
-      "Imagine um salão iluminado, uma música suave e uma dança sem pressa. Às vezes, tudo o que precisamos é de um momento bonito para guardar na memória, tipo aquela vez que fomos comer pizza, em que você estava Maravilhosa.",
+      "Imagine um salão iluminado, uma música suave e uma dança sem pressa. Às vezes, tudo o que precisamos é de um momento bonito para guardar na memória, tipo aquela vez que fomos comer pizza, em que você estava maravilhosa.",
   },
   {
     titulo: "Um segredo da gazeta",
@@ -109,7 +109,7 @@ function App() {
     <div className="site">
       <audio
         ref={audioRef}
-        src={`${import.meta.env.BASE_URL}music/regencia.mp3`}
+        src={`${import.meta.env.BASE_URL}regencia.mp3`}
         loop
         preload="none"
         onError={() => {
@@ -160,9 +160,9 @@ function App() {
 
       {erroMusica && (
         <p className="aviso-musica">
-          Para ouvir a música, adicione o arquivo
-          <code> public/music/regencia.mp3 </code>
-          ao projeto.
+          Não foi possível carregar a música. Confira se o arquivo
+          <code> regencia.mp3 </code>
+          está na raiz do repositório e se a publicação terminou.
         </p>
       )}
 
@@ -200,7 +200,9 @@ function App() {
                 onClick={() => setCartaAberta(!cartaAberta)}
                 aria-expanded={cartaAberta}
               >
-                <span className="envelope-linha">Uma correspondência para</span>
+                <span className="envelope-linha">
+                  Uma correspondência para
+                </span>
                 <span className="envelope-nome">Miss Ana Luiza</span>
                 <span className="lacre">A</span>
                 <span className="envelope-instrucao">
@@ -223,7 +225,7 @@ function App() {
                   Prepare-se para algumas páginas, pequenos segredos e uma
                   surpresa reservada especialmente para você.
                 </p>
-                <p className="assinatura">Com carinho vitor. ♡</p>
+                <p className="assinatura">Com carinho, Vitor. ♡</p>
                 <button
                   className="botao-principal"
                   onClick={() => irPara("gazeta")}
@@ -298,7 +300,7 @@ function App() {
                   páginas da sociedade.
                 </p>
                 <p>
-                  Dizem que o verdadeiro mistério não seria em descobrir quem
+                  Dizem que o verdadeiro mistério não seria descobrir quem
                   escreveu uma gazeta, mas por que alguém preparou cada
                   detalhe pensando nela.
                 </p>
@@ -331,13 +333,13 @@ function App() {
                     titulo: "Uma doce suspeita",
                     icone: "❦",
                     texto:
-                      "Há nomes que ficam mais bonitos quando aparecem em nossos pensamentos sem aviso algum principalmente o seu.",
+                      "Há nomes que ficam mais bonitos quando aparecem em nossos pensamentos sem aviso algum, principalmente o seu.",
                   },
                   {
                     titulo: "A última pista",
                     icone: "♡",
                     texto:
-                      " Eu espero que você chegue até a última página. Há algo que desejo lhe dizer.",
+                      "Eu espero que você chegue até a última página. Há algo que desejo lhe dizer.",
                   },
                 ].map((item, i) => (
                   <button
@@ -378,7 +380,9 @@ function App() {
             <div className="cabecalho-secao">
               <span>CORRESPONDÊNCIAS CONFIDENCIAIS</span>
               <h2>Palavras guardadas <em>com carinho</em></h2>
-              <p>Algumas mensagens só precisam da pessoa certa para existir.</p>
+              <p>
+                Algumas mensagens só precisam da pessoa certa para existir.
+              </p>
             </div>
 
             <div className="cartas-grade">
@@ -410,7 +414,9 @@ function App() {
                   <div className="carta-card-selo">{carta.selo}</div>
                   <h3>{carta.titulo}</h3>
                   <p>{carta.texto}</p>
-                  <span className="carta-linha">Escrita especialmente para você</span>
+                  <span className="carta-linha">
+                    Escrita especialmente para você
+                  </span>
                 </article>
               ))}
             </div>
@@ -442,7 +448,11 @@ function App() {
                 <div className="capa-borda">
                   <span>UMA HISTÓRIA ORIGINAL</span>
                   <div className="capa-flor">❦</div>
-                  <h3>Pequenos<br />Segredos</h3>
+                  <h3>
+                    Pequenos
+                    <br />
+                    Segredos
+                  </h3>
                   <p>Uma edição para Ana Luiza</p>
                   <span className="capa-rodape">COM TODO O CARINHO ♡</span>
                 </div>
@@ -476,19 +486,6 @@ function App() {
                   </article>
                 ))}
               </div>
-            </div>
-
-            <div className="centralizado">
-              <button
-                className="botao-principal"
-                onClick={() => irPara("baile")}
-              >
-                Receber um convite especial →
-              </button>
-            </div>
-          </section>
-        )}
-
         {secao === "baile" && (
           <section className="pagina animar">
             <div className="cabecalho-secao">
@@ -513,7 +510,9 @@ function App() {
                   <span className="escolha-numero">CONVITE Nº 0{i + 1}</span>
                   <strong>{item.titulo}</strong>
                   <span className="escolha-instrucao">
-                    {escolha === i ? "Seu convite escolhido ♡" : "Escolher convite"}
+                    {escolha === i
+                      ? "Seu convite escolhido ♡"
+                      : "Escolher convite"}
                   </span>
                 </button>
               ))}
@@ -538,6 +537,7 @@ function App() {
                   de 3
                 </span>
               </div>
+
               <div className="progresso-trilho">
                 <div
                   className="progresso-preenchido"
@@ -568,8 +568,12 @@ function App() {
           <section className="pagina final-pagina animar">
             {declaracaoAberta ? (
               <article className="declaracao">
-                <span className="selo-superior">A ÚLTIMA CORRESPONDÊNCIA</span>
+                <span className="selo-superior">
+                  A ÚLTIMA CORRESPONDÊNCIA
+                </span>
+
                 <div className="flor-separadora">❦</div>
+
                 <h1>
                   Para você,
                   <br />
@@ -595,28 +599,38 @@ function App() {
                 </p>
 
                 <div className="declaracao-destaque">
-                  Ana, você é alguém muito especial para mim e gostaria muito de começar uma História com você se tiver vontade. ♡
+                  Ana, você é alguém muito especial para mim e gostaria muito
+                  de começar uma história com você, se tiver vontade. ♡
                 </div>
 
                 <div className="flor-separadora">✦ ❦ ✦</div>
+
                 <p className="assinatura final-assinatura">
                   Com todo o carinho,
                   <br />
                   alguém que quis preparar algo só para você.
                 </p>
+
                 <p className="final-nota">
-                  Fim deste projeto. O próximo capítulo fica a criterio de você senhorita.
+                  Fim deste projeto. O próximo capítulo fica a critério de
+                  você, senhorita.
                 </p>
               </article>
             ) : (
               <div className="final-bloqueado">
-                <span className="selo-superior">CORRESPONDÊNCIA SELADA</span>
+                <span className="selo-superior">
+                  CORRESPONDÊNCIA SELADA
+                </span>
+
                 <div className="flor-separadora">🔒</div>
+
                 <h2>A última carta ainda está fechada...</h2>
+
                 <p>
-                  A gazeta guarda uma última mensagem. Descubra os segredos
+                  A Gazeta guarda uma última mensagem. Descubra os segredos
                   anteriores e escolha seu convite para abri-la.
                 </p>
+
                 <button
                   className="botao-principal"
                   onClick={() => irPara("baile")}
@@ -631,12 +645,18 @@ function App() {
 
       <footer className="rodape">
         <div className="flor-separadora">❦</div>
+
         <p>Uma edição feita com carinho para Ana Luiza.</p>
+
         <p className="rodape-menor">
           Inspirada no encanto dos romances de época e no universo de
           Bridgerton.
         </p>
-        <button className="rodape-botao" onClick={() => irPara("inicio")}>
+
+        <button
+          className="rodape-botao"
+          onClick={() => irPara("inicio")}
+        >
           Voltar ao início ↑
         </button>
       </footer>
@@ -647,3 +667,16 @@ function App() {
 }
 
 export default App;
+
+            </div>
+
+            <div className="centralizado">
+              <button
+                className="botao-principal"
+                onClick={() => irPara("baile")}
+              >
+                Receber um convite especial →
+              </button>
+            </div>
+          </section>
+        )}
