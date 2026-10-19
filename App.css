@@ -1,0 +1,1355 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=DM+Sans:wght@400;500;600;700&display=swap");
+
+:root {
+  font-family: "DM Sans", sans-serif;
+  color: #4c2630;
+  background: #f8f1e6;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --vinho: #702b3d;
+  --vinho-escuro: #421b29;
+  --vinho-claro: #904858;
+  --dourado: #b18a50;
+  --papel: #fbf5e9;
+  --papel-escuro: #efe2cd;
+  --texto: #4c2630;
+  --linha: #dfcbb0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at top, #fffaf0 0%, transparent 65%),
+    #f8f1e6;
+}
+
+button {
+  font: inherit;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--dourado);
+  outline-offset: 4px;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.site {
+  max-width: 1440px;
+  min-height: 100vh;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.ornamento-topo,
+.ornamento-base {
+  padding: 18px 12px;
+  color: var(--dourado);
+  text-align: center;
+  letter-spacing: 9px;
+  font-size: 15px;
+}
+
+.cabecalho {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 20px;
+  padding: 22px 5%;
+  border-top: 1px solid var(--linha);
+  border-bottom: 1px solid var(--linha);
+  background: rgb(255 250 241 / 72%);
+}
+
+.marca {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--vinho);
+  cursor: pointer;
+}
+
+.marca-pequena {
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.marca-grande {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.navegacao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+}
+
+.navegacao button,
+.rodape-botao {
+  padding: 7px 0;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  background: none;
+  color: #704b50;
+  font-size: 11px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.navegacao button:hover,
+.navegacao button.nav-ativo {
+  color: var(--vinho);
+  border-bottom-color: var(--dourado);
+}
+
+.botao-musica {
+  justify-self: end;
+  padding: 10px 15px;
+  border: 1px solid var(--linha);
+  border-radius: 2px;
+  background: transparent;
+  color: var(--vinho);
+  font-size: 11px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.botao-musica:hover {
+  background: #f1e4d1;
+}
+
+.aviso-musica {
+  margin: 0;
+  padding: 12px;
+  background: #f0e0d4;
+  text-align: center;
+  font-size: 12px;
+}
+
+.pagina {
+  width: min(100% - 36px, 1000px);
+  min-height: 580px;
+  margin: 0 auto;
+  padding: 78px 0 90px;
+}
+
+.inicio {
+  max-width: 800px;
+  text-align: center;
+}
+
+.selo-superior {
+  display: inline-block;
+  padding: 9px 14px;
+  border: 1px solid var(--dourado);
+  color: #916b36;
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.sobretitulo {
+  margin: 35px 0 14px;
+  color: #916b59;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 22px;
+  font-style: italic;
+}
+
+h1,
+h2,
+h3,
+p {
+  overflow-wrap: anywhere;
+}
+
+.inicio h1,
+.declaracao h1 {
+  margin: 0;
+  color: var(--vinho-escuro);
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(46px, 7vw, 78px);
+  font-weight: 500;
+  line-height: 0.98;
+}
+
+.inicio h1 em,
+.declaracao h1 em,
+.cabecalho-secao h2 em {
+  color: var(--vinho);
+  font-weight: 400;
+}
+
+.flor-separadora {
+  margin: 26px 0;
+  color: var(--dourado);
+  font-size: 24px;
+  text-align: center;
+}
+
+.introducao {
+  max-width: 510px;
+  margin: 0 auto;
+  color: #76595a;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 22px;
+  line-height: 1.5;
+}
+
+.nome-destaque {
+  margin-top: 23px;
+  color: var(--vinho);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 38px;
+  font-style: italic;
+}
+
+.legenda-nome {
+  margin: 3px 0;
+  color: #a17d69;
+  font-size: 10px;
+  letter-spacing: 1.4px;
+}
+
+.envelope-area {
+  display: flex;
+  justify-content: center;
+  margin: 43px auto 25px;
+}
+
+.envelope {
+  position: relative;
+  display: flex;
+  width: min(100%, 360px);
+  min-height: 205px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 30px 20px;
+  border: 1px solid #d5b88b;
+  background:
+    linear-gradient(135deg, transparent 49.5%, #ead9bc 50%, transparent 50.5%),
+    linear-gradient(225deg, transparent 49.5%, #ead9bc 50%, transparent 50.5%),
+    linear-gradient(#fbf0dc, #f4e4c9);
+  box-shadow: 0 8px 25px rgb(74 34 40 / 9%);
+  color: var(--vinho);
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.envelope:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgb(74 34 40 / 13%);
+}
+
+.envelope-linha {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 18px;
+  font-style: italic;
+}
+
+.envelope-nome {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 30px;
+}
+
+.lacre {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  margin: 3px 0;
+  border: 2px solid #d2ad70;
+  border-radius: 50%;
+  background: var(--vinho);
+  box-shadow: 0 3px 6px rgb(66 27 41 / 20%);
+  color: #f7e6c6;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 20px;
+}
+
+.envelope-instrucao {
+  color: #85634c;
+  font-size: 10px;
+  letter-spacing: 0.7px;
+}
+
+.carta-revelada,
+.mensagem-escolhida {
+  max-width: 620px;
+  margin: 25px auto;
+  padding: 34px clamp(22px, 5vw, 55px);
+  border: 1px solid var(--linha);
+  background: rgb(255 251 242 / 85%);
+  box-shadow: 0 8px 25px rgb(74 34 40 / 5%);
+  text-align: left;
+}
+
+.carta-revelada p,
+.mensagem-escolhida p {
+  color: #6e5050;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 20px;
+  line-height: 1.65;
+}
+
+.carta-revelada .carta-sauda {
+  color: var(--vinho);
+  font-size: 26px;
+  font-style: italic;
+}
+
+.assinatura {
+  display: block;
+  margin-top: 22px;
+  color: var(--vinho);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 23px;
+  font-style: italic;
+  text-align: right;
+}
+
+.botao-principal {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 22px;
+  padding: 13px 22px;
+  border: 1px solid var(--vinho);
+  background: var(--vinho);
+  color: #fff7e9;
+  font-size: 11px;
+  letter-spacing: 0.6px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.botao-principal:hover {
+  transform: translateY(-2px);
+  background: var(--vinho-escuro);
+}
+
+.progresso-area {
+  max-width: 410px;
+  margin: 52px auto 0;
+  text-align: left;
+}
+
+.progresso-texto {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 9px;
+  color: #987b6c;
+  font-size: 10px;
+}
+
+.progresso-trilho {
+  height: 4px;
+  overflow: hidden;
+  background: #e8d9c6;
+}
+
+.progresso-preenchido {
+  height: 100%;
+  background: var(--dourado);
+  transition: width 0.4s ease;
+}
+
+.cabecalho-secao {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.cabecalho-secao > span {
+  color: #a0805c;
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.cabecalho-secao h2 {
+  margin: 13px 0;
+  color: var(--vinho-escuro);
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(38px, 6vw, 58px);
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.cabecalho-secao > p {
+  max-width: 500px;
+  margin: 0 auto;
+  color: #846b60;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 20px;
+}
+
+.jornal {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: clamp(20px, 5vw, 50px);
+  border: 1px solid #c7ae88;
+  outline: 5px solid #f0e4d0;
+  outline-offset: -9px;
+  background:
+    radial-gradient(ellipse at center, transparent 20%, rgb(183 145 94 / 5%) 100%),
+    #f8eedb;
+  color: #3e2524;
+}
+
+.jornal-topo {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #bda27d;
+  font-size: 8px;
+  letter-spacing: 1.2px;
+}
+
+.jornal-titulo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 22px 0 13px;
+  text-align: center;
+}
+
+.jornal-titulo span {
+  font-size: 9px;
+  letter-spacing: 3px;
+}
+
+.jornal-titulo h2 {
+  margin: -4px 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(44px, 9vw, 82px);
+  font-weight: 700;
+  letter-spacing: 4px;
+  line-height: 1;
+}
+
+.jornal-data {
+  padding: 9px 0;
+  border-top: 1px solid #bda27d;
+  border-bottom: 1px solid #bda27d;
+  font-size: 8px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.jornal h3 {
+  margin: 25px 0 8px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(31px, 5vw, 48px);
+  font-weight: 700;
+  line-height: 0.98;
+  text-align: center;
+}
+
+.jornal-subtitulo {
+  max-width: 490px;
+  margin: 13px auto 25px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.jornal-colunas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding-top: 18px;
+  border-top: 1px solid #cbb38f;
+}
+
+.jornal-colunas p {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 16px;
+  line-height: 1.55;
+  text-align: justify;
+}
+
+.jornal-assinatura {
+  margin-top: 30px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 16px;
+  font-style: italic;
+  text-align: right;
+}
+
+.jornal-assinatura strong {
+  display: inline-block;
+  margin-top: 3px;
+  font-size: 24px;
+}
+
+.jornal-assinatura span {
+  display: block;
+  margin-top: 15px;
+  color: var(--dourado);
+  text-align: center;
+}
+
+.segredos-area {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.segredos-area > h3 {
+  margin-bottom: 7px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 33px;
+  font-weight: 500;
+}
+
+.texto-suave {
+  color: #8b7064;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 19px;
+  line-height: 1.5;
+}
+
+.segredos-grade {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+  margin-top: 24px;
+}
+
+.segredo-card {
+  display: flex;
+  min-height: 200px;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 23px 16px;
+  border: 1px solid var(--linha);
+  background: #fcf7ee;
+  color: var(--vinho);
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.segredo-card:hover {
+  transform: translateY(-3px);
+  background: #f7eddd;
+}
+
+.segredo-icone {
+  font-size: 27px;
+}
+
+.segredo-card strong {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 21px;
+}
+
+.segredo-dica {
+  color: #8a6e62;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.segredo-descoberto {
+  background: #f3e7d5;
+}
+
+.centralizado {
+  margin-top: 32px;
+  text-align: center;
+}
+
+.cartas-grade {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.carta-card {
+  position: relative;
+  min-height: 310px;
+  padding: 28px 23px;
+  border: 1px solid var(--linha);
+  background: #fcf7ee;
+  box-shadow: 0 7px 20px rgb(74 34 40 / 4%);
+}
+
+.carta-numero {
+  color: #b29a7b;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.carta-card-selo {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  margin: 18px 0;
+  border: 1px solid var(--dourado);
+  border-radius: 50%;
+  background: var(--vinho);
+  color: #f6e4c3;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 22px;
+}
+
+.carta-card h3 {
+  margin: 0 0 10px;
+  color: var(--vinho);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 27px;
+  font-weight: 500;
+}
+
+.carta-card p {
+  color: #795e57;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+.carta-linha {
+  display: block;
+  margin-top: 18px;
+  color: #a48b73;
+  font-size: 9px;
+  font-style: italic;
+}
+
+.livro-layout {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  align-items: start;
+  gap: 35px;
+}
+
+.capa-livro {
+  padding: 15px;
+  background: #f1e4cf;
+  box-shadow: 0 10px 30px rgb(74 34 40 / 12%);
+}
+
+.capa-borda {
+  display: flex;
+  min-height: 420px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  border: 1px solid #c4a36d;
+  outline: 1px solid #c4a36d;
+  outline-offset: -7px;
+  background:
+    radial-gradient(ellipse at center, #81384a, #4d1e2d);
+  color: #f4dfb8;
+  text-align: center;
+}
+
+.capa-borda > span {
+  font-size: 8px;
+  letter-spacing: 2px;
+}
+
+.capa-flor {
+  margin: 35px 0 20px;
+  color: #d8b879;
+  font-size: 42px;
+}
+
+.capa-borda h3 {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 0.95;
+}
+
+.capa-borda p {
+  margin-top: 22px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 17px;
+  font-style: italic;
+}
+
+.capa-rodape {
+  margin-top: 40px;
+}
+
+.capitulos {
+  border-top: 1px solid var(--linha);
+}
+
+.capitulo {
+  border-bottom: 1px solid var(--linha);
+}
+
+.capitulo-botao {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 16px;
+  padding: 21px 0;
+  border: 0;
+  background: transparent;
+  color: var(--vinho);
+  text-align: left;
+  cursor: pointer;
+}
+
+.capitulo-numero {
+  color: #b18a50;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 25px;
+}
+
+.capitulo-titulo {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.capitulo-titulo strong {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 21px;
+  font-weight: 600;
+}
+
+.capitulo-titulo small {
+  color: #96786a;
+  font-size: 10px;
+}
+
+.capitulo-sinal {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 28px;
+}
+
+.capitulo-texto {
+  padding: 0 5px 20px 45px;
+}
+
+.capitulo-texto p {
+  margin: 0;
+  color: #765b54;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 19px;
+  line-height: 1.65;
+}
+
+.escolhas-grade {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.escolha-card {
+  display: flex;
+  min-height: 235px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 24px 16px;
+  border: 1px solid var(--linha);
+  background: #fcf7ee;
+  color: var(--vinho);
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s, border-color 0.2s;
+}
+
+.escolha-card:hover,
+.escolha-ativa {
+  transform: translateY(-4px);
+  border-color: var(--dourado);
+  background: #f3e6d2;
+}
+
+.escolha-emoji {
+  font-size: 37px;
+}
+
+.escolha-numero {
+  color: #a0805c;
+  font-size: 8px;
+  letter-spacing: 1.5px;
+}
+
+.escolha-card strong {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.escolha-instrucao {
+  color: #8a6e62;
+  font-size: 10px;
+}
+
+.mensagem-escolhida {
+  text-align: center;
+}
+
+.mensagem-escolhida h3 {
+  color: var(--vinho);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 31px;
+  font-weight: 500;
+}
+
+.final-pagina {
+  max-width: 760px;
+  text-align: center;
+}
+
+.declaracao {
+  padding: clamp(24px, 6vw, 60px);
+  border: 1px solid var(--linha);
+  outline: 1px solid #ead8bd;
+  outline-offset: -9px;
+  background:
+    radial-gradient(ellipse at top, #fffaf0, transparent 70%),
+    #fbf5e9;
+  box-shadow: 0 10px 35px rgb(74 34 40 / 6%);
+}
+
+.declaracao h1 {
+  font-size: clamp(46px, 7vw, 67px);
+}
+
+.declaracao-texto {
+  max-width: 510px;
+  margin: 24px auto;
+  color: #765b54;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 21px;
+  line-height: 1.7;
+  text-align: left;
+}
+
+.declaracao-destaque {
+  margin: 34px 0;
+  padding: 22px 10px;
+  border-top: 1px solid var(--linha);
+  border-bottom: 1px solid var(--linha);
+  color: var(--vinho);
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(23px, 4vw, 31px);
+  font-style: italic;
+}
+
+.final-assinatura {
+  text-align: center;
+}
+
+.final-nota {
+  margin-top: 35px;
+  color: #a48b73;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 16px;
+  font-style: italic;
+}
+
+.final-bloqueado {
+  max-width: 550px;
+  margin: 0 auto;
+  padding: 40px 25px;
+  border: 1px solid var(--linha);
+  background: #fcf7ee;
+}
+
+.final-bloqueado h2 {
+  color: var(--vinho);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 36px;
+  font-weight: 500;
+}
+
+.final-bloqueado p {
+  color: #846b60;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+.rodape {
+  padding: 45px 20px 35px;
+  border-top: 1px solid var(--linha);
+  background: rgb(255 250 241 / 65%);
+  text-align: center;
+}
+
+.rodape .flor-separadora {
+  margin: 0 0 13px;
+}
+
+.rodape p {
+  margin: 7px 0;
+  color: var(--vinho);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 19px;
+}
+
+.rodape .rodape-menor {
+  color: #9b8171;
+  font-size: 15px;
+}
+
+.rodape-botao {
+  margin-top: 18px;
+}
+
+.animar {
+  animation: surgir 0.5s ease both;
+}
+
+@keyframes surgir {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1000px) {
+  .cabecalho {
+    grid-template-columns: 1fr auto;
+    gap: 15px;
+  }
+
+  .navegacao {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    flex-wrap: wrap;
+    gap: 13px 24px;
+  }
+
+  .botao-musica {
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
+
+@media (max-width: 700px) {
+  .ornamento-topo,
+  .ornamento-base {
+    padding: 13px 8px;
+    font-size: 12px;
+  }
+
+  .cabecalho {
+    padding: 19px 18px 14px;
+  }
+
+  .marca-grande {
+    font-size: 25px;
+  }
+
+  .marca-pequena {
+    font-size: 7px;
+    letter-spacing: 1.2px;
+  }
+
+  .botao-musica {
+    padding: 9px;
+    font-size: 10px;
+  }
+
+  .navegacao {
+    gap: 6px 17px;
+  }
+
+  .navegacao button {
+    font-size: 10px;
+  }
+
+  .pagina {
+    width: min(100% - 30px, 560px);
+    min-height: auto;
+    padding: 55px 0 65px;
+  }
+
+  .sobretitulo {
+    font-size: 19px;
+  }
+
+  .introducao {
+    font-size: 20px;
+  }
+
+  .nome-destaque {
+    font-size: 33px;
+  }
+
+  .envelope {
+    min-height: 190px;
+  }
+
+  .jornal-colunas {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .jornal-colunas p {
+    font-size: 17px;
+  }
+
+  .segredos-grade,
+  .cartas-grade,
+  .escolhas-grade {
+    grid-template-columns: 1fr;
+  }
+
+  .segredo-card {
+    min-height: 150px;
+  }
+
+  .carta-card {
+    min-height: auto;
+  }
+
+  .carta-card p {
+    font-size: 19px;
+  }
+
+  .livro-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .capa-livro {
+    width: min(100%, 320px);
+    margin: 0 auto;
+  }
+
+  .capa-borda {
+    min-height: 360px;
+  }
+
+  .capitulo-titulo strong {
+    font-size: 19px;
+  }
+
+  .declaracao {
+    padding: 28px 22px;
+  }
+
+  .declaracao-texto {
+    font-size: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===== NOVA PALETA: VINHO REGENCY ===== */
+
+:root {
+  --vinho: #6e233b;
+  --vinho-escuro: #38101f;
+  --vinho-claro: #91435a;
+  --dourado: #b89458;
+  --papel: #fff8ed;
+  --papel-escuro: #ead9c2;
+  --texto: #49212d;
+  --linha: #d7bd9a;
+
+  color: #49212d;
+  background: #35101f;
+}
+
+/* Fundo vinho com iluminação suave */
+body {
+  background:
+    radial-gradient(
+      ellipse at top,
+      #702b43 0%,
+      transparent 65%
+    ),
+    #35101f;
+}
+
+/* Cabeçalho em vinho translúcido */
+.cabecalho {
+  background: rgb(53 16 31 / 94%);
+  border-top-color: #b89458;
+  border-bottom-color: #b89458;
+}
+
+/* Nome do site */
+.marca {
+  color: #f0dfbd;
+}
+
+/* Navegação */
+.navegacao button,
+.rodape-botao {
+  color: #e6d2bd;
+}
+
+.navegacao button:hover,
+.navegacao button.nav-ativo {
+  color: #f4d79c;
+  border-bottom-color: #d7b779;
+}
+
+/* Botão da música */
+.botao-musica {
+  color: #f0dfbd;
+  border-color: #b89458;
+}
+
+.botao-musica:hover {
+  background: #572039;
+}
+
+/* Pequenos avisos */
+.aviso-musica {
+  color: #e9bb04;
+  background: #f0dfc8;
+}
+
+/* Detalhes dourados */
+.selo-superior {
+  color: #a47b3f;
+  border-color: #b89458;
+}
+
+.flor-separadora {
+  color: #c5a46b;
+}
+
+/* Fundo externo e rodapé */
+.site {
+  background: transparent;
+}
+
+.rodape {
+  color: #f0dfbd;
+  background: rgb(30 8 17 / 75%);
+  border-top-color: #b89458;
+}
+
+.rodape p {
+  color: #f0dfbd;
+}
+
+.rodape .rodape-menor {
+  color: #d0b9b0;
+}
+
+.rodape-botao {
+  color: #f0dfbd;
+}
+
+/* Mantém os cartões claros e confortáveis para ler */
+.carta-revelada,
+.mensagem-escolhida,
+.jornal,
+.segredo-card,
+.carta-card,
+.escolha-card,
+.final-bloqueado {
+  border-color: #d7bd9a;
+}
+
+/* ===== LETRAS DOURADAS REGENCY ===== */
+
+/* Títulos principais */
+h1,
+h2,
+h3 {
+  color: #d8b56d;
+}
+
+/* Títulos decorativos e nomes */
+.marca,
+.selo-superior,
+.flor-separadora {
+  color: #d8b56d;
+}
+
+/* Textos de destaque */
+.subtitulo,
+.titulo-secao,
+.chamada,
+.destaque {
+  color: #cba45e;
+}
+
+/* Navegação e botões */
+.navegacao button,
+.rodape-botao {
+  color: #e2c27c;
+}
+
+/* Efeito dourado ao passar o mouse */
+.navegacao button:hover,
+.navegacao button.nav-ativo,
+.rodape-botao:hover {
+  color: #ffe4a0;
+}
+
+/* Pequenos detalhes e bordas */
+.selo-superior {
+  border-color: #cba45e;
+}
+
+/* Mantém a leitura confortável nos cartões claros */
+.carta-revelada p,
+.mensagem-escolhida p,
+.jornal p,
+.segredo-card p,
+.carta-card p,
+.escolha-card p,
+.final-bloqueado p {
+  color: #49212d;
+}
+
+/* Textos do cabeçalho e rodapé sobre o fundo vinho */
+.cabecalho,
+.rodape {
+  color: #e2c27c;
+}
+
+/* ===== DOURADO EM TODAS AS LETRAS DECORATIVAS ===== */
+
+/* Títulos e subtítulos */
+h1, h2, h3, h4, h5, h6,
+.titulo-secao,
+.subtitulo,
+.chamada,
+.marca,
+.selo-superior,
+.flor-separadora {
+  color: #d8b56d;
+}
+
+/* Menu, navegação e botões */
+button,
+.navegacao button,
+.rodape-botao,
+.botao-musica {
+  color: #d8b56d;
+}
+
+/* Links */
+a,
+a:visited {
+  color: #cba45e;
+}
+
+/* Destaques e elementos decorativos */
+strong,
+b,
+.etiqueta,
+.numero-capitulo,
+.capitulo-numero {
+  color: #cba45e;
+}
+
+/* Efeito ao passar o mouse */
+button:hover,
+a:hover {
+  color: #ffe4a0;
+}
+
+/* Mantém os textos normais escuros e legíveis */
+p,
+li,
+input,
+textarea,
+select {
+  color: #49212d;
+}
+
+/* Exceção: textos dos botões continuam dourados */
+button p,
+button span,
+.navegacao button,
+.rodape-botao,
+.botao-musica {
+  color: #d8b56d;
+}
+
+/* ===== CORREÇÃO DOS TÍTULOS PRINCIPAIS ===== */
+
+/* Título da página inicial */
+.inicio h1,
+.inicio h1 em {
+  color: #e6c477 !important;
+}
+
+/* Nome em destaque */
+.nome-destaque {
+  color: #e6c477 !important;
+}
+
+/* Frase acima do título */
+.sobretitulo {
+  color: #e6c477 !important;
+}
+
+/* Títulos das seções sobre o fundo vinho */
+.cabecalho-secao h2,
+.cabecalho-secao h2 em,
+.segredos-area > h3 {
+  color: #e6c477 !important;
+}
+
+/* Título da declaração final */
+.declaracao h1,
+.declaracao h1 em {
+  color: #81552b !important;
+}
+
+/* Mantém os textos comuns confortáveis de ler */
+.introducao {
+  color: #f0dfbd !important;
+}
+
